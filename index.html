@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#18392b" />
+  <title>森日日｜日文學習</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-label="森日日 logo">
+          <span>木</span><span>木</span><span>木</span>
+        </div>
+        <div>
+          <h1>森日日</h1>
+          <p>MORI HIBI</p>
+        </div>
+        <button id="sidebarToggle" class="icon-btn mobile-only" aria-label="關閉選單">✕</button>
+      </div>
+      <nav id="mainNav">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span>學習首頁</button>
+        <button class="nav-item" data-page="kana"><span>あ</span>完整 50 音</button>
+        <button class="nav-item" data-page="vocab"><span>本</span>單字學習</button>
+        <button class="nav-item" data-page="grammar"><span>文</span>文法 25 章</button>
+        <button class="nav-item" data-page="dialogue"><span>話</span>常用對話</button>
+        <button class="nav-item" data-page="translate"><span>訳</span>翻譯＋語音</button>
+        <button class="nav-item" data-page="jlpt"><span>試</span>JLPT 30 題</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="streak-card">
+          <small>連續學習</small>
+          <strong><span id="streakCount">1</span> 天</strong>
+          <div class="mini-progress"><i id="weeklyProgress"></i></div>
+        </div>
+        <button class="ghost-btn full" id="resetProgress">重設學習紀錄</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuOpen" class="icon-btn mobile-only" aria-label="開啟選單">☰</button>
+        <div>
+          <div class="eyebrow">日本語を、毎日の森へ。</div>
+          <h2 id="pageTitle">學習首頁</h2>
+        </div>
+        <div class="top-actions">
+          <button id="soundTest" class="pill-btn">🔊 語音測試</button>
+          <div class="level-chip">目前：<b id="currentLevel">N5</b></div>
+        </div>
+      </header>
+
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <template id="dashboardTemplate">
+    <div class="hero">
+      <div>
+        <span class="tag">今日學習</span>
+        <h3>一日一葉，積成一森。</h3>
+        <p>從五十音、單字、文法到 JLPT，讓每一天的日文都能看見累積。</p>
+        <div class="hero-actions">
+          <button class="primary-btn" data-go="kana">開始今日學習</button>
+          <button class="secondary-btn" data-go="jlpt">挑戰 30 題</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="torii">森</div>
+        <div class="hill h1"></div>
+        <div class="hill h2"></div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card"><small>50 音完成度</small><strong id="statKana">0%</strong><div class="bar"><i id="barKana"></i></div></div>
+      <div class="stat-card"><small>已學單字</small><strong id="statVocab">0</strong><span>詞</span></div>
+      <div class="stat-card"><small>文法進度</small><strong id="statGrammar">0</strong><span>/ 25 章</span></div>
+      <div class="stat-card"><small>最高 JLPT 成績</small><strong id="statQuiz">—</strong><span>/ 30</span></div>
+    </div>
+
+    <div class="section-head"><div><span class="eyebrow">COURSES</span><h3>六大學習模組</h3></div></div>
+    <div class="course-grid">
+      <button class="course-card" data-go="kana"><span class="course-icon">あ</span><b>完整 50 音</b><p>平假名、片假名、濁音、拗音、促音，聽說讀寫一次練。</p><em>開始學習 →</em></button>
+      <button class="course-card" data-go="vocab"><span class="course-icon">語</span><b>單字學習</b><p>情境分類、例句、發音、收藏與熟練度。</p><em>進入單字庫 →</em></button>
+      <button class="course-card" data-go="grammar"><span class="course-icon">文</span><b>文法 25 章</b><p>N5 基礎一路到 N1 高階，概念、比較、例句、練習。</p><em>查看章節 →</em></button>
+      <button class="course-card" data-go="dialogue"><span class="course-icon">話</span><b>常用日語對話</b><p>旅遊、餐廳、購物、職場、交友，附羅馬拼音與跟讀。</p><em>開始會話 →</em></button>
+      <button class="course-card" data-go="translate"><span class="course-icon">訳</span><b>翻譯＋語音</b><p>多語輸入自動翻成日文，可一鍵朗讀。</p><em>開始翻譯 →</em></button>
+      <button class="course-card" data-go="jlpt"><span class="course-icon">試</span><b>JLPT 30 題</b><p>N5～N1 分級測驗，交卷後顯示分數與逐題解析。</p><em>開始測驗 →</em></button>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
